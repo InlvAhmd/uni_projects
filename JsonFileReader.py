@@ -25,3 +25,30 @@ class JsonFileReader():
             self.data[index] = calc(value,numberToUse)
         
 
+    def changeInterval(self, newInterval):
+        newData = []
+        if int(self.interval) < newInterval:
+            datapoints = int(
+                newInterval / int(self.interval)
+            )
+
+            for i in range(0,len(self.data),datapoints):
+                if i+datapoints <= len(self.data):
+                    newVal = sum(self.data[i:i+datapoints]) / datapoints
+                    newData.append(newVal)
+
+        else:
+            datapoints = int(
+                newInterval / int(self.interval)
+            )
+
+            for i in self.data:
+                newData.extend([i]*datapoints)
+
+
+        self.data = newData
+        self.interval = newInterval
+
+        return self.data
+    
+    
