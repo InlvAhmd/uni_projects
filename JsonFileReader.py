@@ -16,3 +16,12 @@ class JsonFileReader():
         self.data = self.entry["data"]
 
 
+    def changeUnit(self, newUnit):
+        temp = Unit_calc.get_operation(self.unit,newUnit)
+        self.unit = newUnit
+        calc = temp[0]
+        numberToUse = temp[1]
+        for index,value in enumerate(self.data):
+            self.data[index] = calc(value,numberToUse)
+        
+
