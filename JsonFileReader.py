@@ -39,7 +39,7 @@ class JsonFileReader():
 
         else:
             datapoints = int(
-                newInterval / int(self.interval)
+                int(self.interval) / newInterval
             )
 
             for i in self.data:
