@@ -7,18 +7,18 @@ the needed operation
 
 
 operations = {
-            "kWh,Wh"  : [op.mul,1000],
-            "kWh,KJ"  : [op.mul,3600],
-            "kWh,J"   : [op.mul,3600000],
-            "Wh,kWh"  : [op.truediv,1000],
-            "Wh,KJ"   : [op.mul,3.6],
-            "Wh,J"    : [op.mul,3600],
-            "KJ,kWh"  : [op.truediv,3600],
-            "KJ,Wh"   : [op.truediv,3.6],
-            "KJ,J"    : [op.mul,1000],
-            "J,kWh"   : [op.truediv,3600000],
-            "J,Wh"    : [op.truediv, 3600],
-            "J,KJ"    : [op.truediv, 1000]
+            "kWh,Wh".lower()  : [op.mul,1000],
+            "kWh,KJ".lower()  : [op.mul,3600],
+            "kWh,J".lower()   : [op.mul,3600000],
+            "Wh,kWh".lower    : [op.truediv,1000],
+            "Wh,KJ".lower()   : [op.mul,3.6],
+            "Wh,J".lower()    : [op.mul,3600],
+            "KJ,kWh".lower()  : [op.truediv,3600],
+            "KJ,Wh".lower()   : [op.truediv,3.6],
+            "KJ,J".lower()    : [op.mul,1000],
+            "J,kWh".lower()   : [op.truediv,3600000],
+            "J,Wh".lower()    : [op.truediv, 3600],
+            "J,KJ".lower()    : [op.truediv, 1000]
             }
 
 

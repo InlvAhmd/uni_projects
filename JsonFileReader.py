@@ -17,7 +17,7 @@ class JsonFileReader():
 
 
     def changeUnit(self, newUnit):
-        temp = Unit_calc.get_operation(self.unit,newUnit)
+        temp = Unit_calc.get_operation(self.unit.lower(),newUnit.lower())
         self.unit = newUnit
         calc = temp[0]
         numberToUse = temp[1]
