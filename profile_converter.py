@@ -27,6 +27,8 @@ def main(argv):
     output = ""
     unit = ""
     interval = 0
+    intervaloptions = ["1","15","30","60","1440"]
+    unitoptions = ["kWh","Wh","KJ","J"]
 
     try:
         optList, args = getopt.getopt(argv,"", ["filepath=","interval=","unit=","output=","help"])
@@ -36,11 +38,17 @@ def main(argv):
     
     for opt, arg in optList:
         if opt == "--interval":
-            interval = arg
+            if arg in intervaloptions:
+                interval = int(arg)
+            else:
+                sys.exit("Interval does not match valid options")
         elif opt == "--filepath":
             filepath = arg
         elif opt == "--unit":
-            unit = arg
+            if arg in unitoptions:
+                unit = arg
+            else:
+                sys.exit("Unit does not match valid options")
         elif opt == "--output":
             output = arg
         elif opt == "--help":
@@ -86,10 +94,12 @@ def main(argv):
     DONE - check the output file %s 
           """ % output)
     
+    
 def compareUnits(currentU,newU):
     return currentU == newU
 
 def compareInterval(currentI,newI):
     return currentI == newI
 
-main(sys.argv[1:])
+if __name__ == "__main__":
+    main(sys.argv[1:])
